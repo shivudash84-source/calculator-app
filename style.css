@@ -1,0 +1,124 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --panel-2: #1f2937;
+  --primary: #38bdf8;
+  --primary-2: #0ea5e9;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --operator: #f59e0b;
+  --secondary: #334155;
+  --equals: #10b981;
+  --shadow: rgba(15, 23, 42, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #020817, #0f172a 45%, #111827);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+}
+
+.calculator {
+  width: min(95vw, 420px);
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 30px 60px var(--shadow);
+}
+
+.display-wrap {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 18px;
+  padding: 18px 16px;
+  margin-bottom: 18px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.expression {
+  color: var(--muted);
+  font-size: 1rem;
+  text-align: right;
+  word-wrap: break-word;
+  min-height: 24px;
+}
+
+.result {
+  text-align: right;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  word-wrap: break-word;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  min-height: 62px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: transform 0.12s ease, filter 0.12s ease;
+  color: var(--text);
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn.number {
+  background: var(--panel-2);
+}
+
+.btn.operator {
+  background: var(--operator);
+  color: #111827;
+}
+
+.btn.secondary {
+  background: var(--secondary);
+}
+
+.btn.equals {
+  background: var(--equals);
+  color: #041b14;
+  grid-column: span 1;
+}
+
+.zero {
+  grid-column: span 1;
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .btn {
+    min-height: 54px;
+    font-size: 0.95rem;
+  }
+}
